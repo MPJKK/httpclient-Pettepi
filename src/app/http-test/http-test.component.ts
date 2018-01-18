@@ -10,7 +10,11 @@ export class HttpTestComponent implements OnInit {
 
 
     tulos: string = 'Moro';
-
+    apitulos = 'Moro taas';
+    apiosoite = 'http://media.mw.metropolia.fi/wbma';
+    kuvaosoite = 'http://media.mw.metropolia.fi/wbma/uploads/';
+    coinmarketcap = 'https://api.coinmarketcap.com/v1/ticker/';
+    cointulos: any;
 
     constructor(private http: HttpClient) {
     }
@@ -26,8 +30,20 @@ export class HttpTestComponent implements OnInit {
         });
     }
 
+    getFromApi() {
+        this.http.get( this.coinmarketcap + 'bitcoin' ).subscribe( data => {
+            console.log(data);
+            this.cointulos = data;
+        });
+        this.http.get(this.apiosoite + '/media').subscribe(data => {
+            console.log(data[0].filename);
+            this.apitulos = this.kuvaosoite + data[0].filename;
+        });
+    }
+
     ngOnInit() {
         this.getJson();
+        this.getFromApi();
     }
 
 }
