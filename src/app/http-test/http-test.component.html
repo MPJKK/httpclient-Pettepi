@@ -1,12 +1,79 @@
 <p>
-  {{ tulos }}
+    {{ tulos }}
 </p>
 
 <!--<p>
   <img [src] = "apitulos">
 </p>
 -->
+
+<h2>ID</h2>
 <p *ngFor="let coin of cointulos">
-  {{ coin.price_usd }}<br>
-  {{ coin.id }}
+    {{ coin.id }}
 </p>
+
+<h2>LATEST PRICE</h2>
+<p *ngFor="let coin of cointulos">
+    {{ coin.price_usd }}<br>
+</p>
+
+<h2>MARKET CAP $</h2>
+
+<p *ngFor="let coin of cointulos">
+    {{ coin.market_cap_usd }}
+</p>
+
+<h1>% change 1h:</h1>
+
+<p *ngFor="let coin of cointulos">
+    {{ coin.percent_change_1h }}
+</p>
+
+<h1>% change 24h:</h1>
+
+<p *ngFor="let coin of cointulos">
+    {{ coin.percent_change_24h }}
+</p>
+
+<h1>% change 7d:</h1>
+
+<p *ngFor="let coin of cointulos">
+    {{ coin.percent_change_7d }}
+</p>
+
+<h2>ID</h2>
+<p *ngFor="let ethereum of cointulos">
+    {{ ethereum.id }}
+</p>
+
+<h2>LATEST PRICE</h2>
+<p *ngFor="let ethereum of cointulos">
+    {{ ethereum.price_usd }}
+</p>
+
+<h2>MARKET CAP $</h2>
+<p *ngFor="let ethereum of cointulos">
+    {{ ethereum.market_cap_usd }}
+</p>
+
+<h2>% change 1h</h2>
+<p *ngFor="let ethereum of cointulos">
+    {{ ethereum.percent_change_1h }}
+</p>
+
+<h2>% change 24h</h2>
+<p *ngFor="let ethereum of cointulos">
+    {{ ethereum.percent_change_24h }}
+</p>
+
+<h2>% change 7d</h2>
+<p *ngFor="let ethereum of cointulos">
+    {{ ethereum.percent_change_7d }}
+</p>
+
+<!--{{ coin.id }}<br>
+{{ coin.market_cap_usd }}<br>
+{{ coin.percent_change_1h }}<br>
+{{ coin.percent_change_24h }}<br>
+{{ coin.percent_change_7d }}<br>
+-->

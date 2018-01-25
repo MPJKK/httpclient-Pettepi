@@ -15,6 +15,7 @@ export class HttpTestComponent implements OnInit {
     kuvaosoite = 'http://media.mw.metropolia.fi/wbma/uploads/';
     coinmarketcap = 'https://api.coinmarketcap.com/v1/ticker/';
     cointulos: any;
+    ethereum: any;
 
     constructor(private http: HttpClient) {
     }
@@ -31,13 +32,17 @@ export class HttpTestComponent implements OnInit {
     }
 
     getFromApi() {
-        this.http.get( this.coinmarketcap + 'bitcoin' ).subscribe( data => {
+        this.http.get(this.coinmarketcap + 'bitcoin').subscribe(data => {
             console.log(data);
             this.cointulos = data;
         });
         this.http.get(this.apiosoite + '/media').subscribe(data => {
             console.log(data[0].filename);
             this.apitulos = this.kuvaosoite + data[0].filename;
+        });
+        this.http.get(this.coinmarketcap + 'ethereum').subscribe(data2 => {
+            console.log(data2);
+            this.ethereum = data2;
         });
     }
 
